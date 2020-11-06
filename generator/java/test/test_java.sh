@@ -14,9 +14,11 @@ mavgen.py --lang='Java' --output=/tmp/mavgen_test/java1 mavlink/message_definiti
 mavgen.py --lang='Java' --output=/tmp/mavgen_test/java2 mavlink/message_definitions/v1.0/common.xml --wire-protocol=2.0 --strict-units
 
 pushd /tmp/mavgen_test/java1
-find . -name "*.java" -print | xargs javac
+mkdir -p build/
+find . -name "*.java" -print | xargs javac -d build/
 popd
 
 pushd /tmp/mavgen_test/java2
-find . -name "*.java" -print | xargs javac
+mkdir -p build/
+find . -name "*.java" -print | xargs javac -d build/
 popd
